@@ -1,1 +1,323 @@
+<!DOCTYPE html>
+<html style="height: 100%; display: table; margin: auto;">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
 
+<head>
+  <meta charset="UTF-8">
+  <title>SAQIP</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body style="height: 100%; background-color:#191a24; display: table-cell; vertical-align: middle;">
+  <div class="login" style="margin: 40px;">
+    <h1 style="color:white;">AQI Prediction in Bishkek</h1>
+
+
+  </div>
+
+
+  <form method="post" action="/select">
+    <select id="operator" name="operator">
+      <option value="1">Tendik zh/m</option>
+      <option value="2">Dordoi zh/m</option>
+      <option value="3">Krasniy Stroitel</option>
+      <option value="4">Dordoi rynok</option>
+      <option value="5">Maevka</option>
+      <option value="6">Kolmo zhm</option>
+      <option value="7">AkTilek zm</option>
+      <option value="8">Karagachevaya rosha</option>
+      <option value="9">Alamudun selo</option>
+      <option value="10">Bakay_Ata zhm</option>
+      <option value="11">Togolok_Moldo ul</option>
+      <option value="12">Fuchika ul</option>
+      <option value="13">Oshskiy rynok</option>
+      <option value="14">MCHS KR</option>
+      <option value="15">Alamudun rynok</option>
+      <option value="16">PNZ no 3</option>
+      <option value="17">Novopokrovka 5</option>
+      <option value="18">Lebedinovka s</option>
+      <option value="19">Udmurtskaya TEZ</option>
+      <option value="20">Min Ekonomiki</option>
+      <option value="21">pr Manasa Moskovskaya</option>
+      <option value="22">Kyzyl Asker zm</option>
+      <option value="23">Kasym zhm</option>
+      <option value="24">Novopavlovka 1</option>
+      <option value="25">Voyenno Antonovka s</option>
+      <option value="26">Ala-Too zhm</option>
+      <option value="27">AkOrdo shkola 96</option>
+      <option value="28">AkOrdo zhilmassiv</option>
+      <option value="29">AkOrgo zhm 1</option>
+      <option value="30">ArchaBeshik s</option>
+      <option value="31">ChonAryk s</option>
+      <option value="32">OrtoSay s</option>
+      <option value="33">12 mikrorayon</option>
+      <option value="34">park Yntymak</option>
+      <option value="35">Ataturk park</option>
+      <option value="36">KGAFKIS institut</option>
+      <option value="37">Rabochii gorodok</option>
+      <option value="38">KokJar zhm</option>
+      <option value="39">Altyn Ordo zhm</option>
+      <option value="40">Ruhiy Muras zhm</option>
+      <option value="41">Uchkun zhm</option>
+      <option value="42">Novopokrovka 4</option>
+      <option value="43">Bishkek International School</option>
+
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+
+  <div class="container" style="margin: 40px; color:white;">
+    <h5 style="color:white;">{{ last_updated }}</h5>
+    <br>
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="row">
+
+          <h1 style="color:white;">{{ aqi_now }}</h1>
+        </div>
+        <div class="row">
+          <div class="card" style="background-color:#3c3f5c;">
+            <div class="card-body">
+              <h5 class="card-title">24-hours Forecast</h5>
+              <p class="card-text"></p>
+              <div class="row">
+                <div class="col" align="center">
+                  {{ timeh1 }}
+                  <br>
+                  <h3>{{ valueh1 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh2 }}
+                  <br>
+                  <h3>{{ valueh2 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh3 }}
+                  <br>
+                  <h3>{{ valueh3 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh4 }}
+                  <br>
+                  <h3>{{ valueh4 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh5 }}
+                  <br>
+                  <h3>{{ valueh5 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh6 }}
+                  <br>
+                  <h3>{{ valueh6 }}</h3>
+                  <br>
+                </div>
+                <div class="w-100"></div>
+
+                <div class="col" align="center">
+                  {{ timeh7 }}
+                  <br>
+                  <h3>{{ valueh7 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh8 }}
+                  <br>
+                  <h3>{{ valueh8 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh9 }}
+                  <br>
+                  <h3>{{ valueh9 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh10 }}
+                  <br>
+                  <h3>{{ valueh10 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh11 }}
+                  <br>
+                  <h3>{{ valueh11 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh12 }}
+                  <br>
+                  <h3>{{ valueh12 }}</h3>
+                  <br>
+                </div>
+                <div class="w-100"></div>
+                <div class="col" align="center">
+                  {{ timeh13 }}
+                  <br>
+                  <h3>{{ valueh13 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh14 }}
+                  <br>
+                  <h3>{{ valueh14 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh15 }}
+                  <br>
+                  <h3>{{ valueh15 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh16 }}
+                  <br>
+                  <h3>{{ valueh16 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh17 }}
+                  <br>
+                  <h3>{{ valueh17 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh18 }}
+                  <br>
+                  <h3>{{ valueh18 }}</h3>
+                  <br>
+                </div>
+                <div class="w-100"></div>
+
+                <div class="col" align="center">
+                  {{ timeh19 }}
+                  <br>
+                  <h3>{{ valueh19 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh20 }}
+                  <br>
+                  <h3>{{ valueh20 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh21 }}
+                  <br>
+                  <h3>{{ valueh21 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh22 }}
+                  <br>
+                  <h3>{{ valueh22 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh23 }}
+                  <br>
+                  <h3>{{ valueh23 }}</h3>
+                  <br>
+                </div>
+                <div class="col" align="center">
+                  {{ timeh24 }}
+                  <br>
+                  <h3>{{ valueh24 }}</h3>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="card" style="background-color:#3c3f5c;">
+          <div class="card-body">
+            <h5 class="card-title">7 Day Forecast</h5>
+
+            <br>
+            <div class="row">
+              <div class="col">
+                {{ day1 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued1 }}</h3>
+              </div>
+              <div class="w-100"></div>
+              <div class="col">
+                {{ day2 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued2 }}</h3>
+
+              </div>
+              <div class="w-100"></div>
+              <div class="col">
+                {{ day3 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued3 }}</h3>
+
+              </div>
+              <div class="w-100"></div>
+              <div class="col">
+                {{ day4 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued4 }}</h3>
+
+              </div>
+              <div class="w-100"></div>
+              <div class="col">
+                {{ day5 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued5 }}</h3>
+
+              </div>
+              <div class="w-100"></div>
+              <div class="col">
+                {{ day6 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued6 }}</h3>
+
+              </div>
+              <div class="w-100"></div>
+              <div class="col">
+                {{ day7 }}
+              </div>
+              <div class="col">
+                <h3>{{ valued7 }}</h3>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
